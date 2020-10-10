@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>Im part of the block content</h2>
-
     {% for game in games %}
         {{ game.game_name }}<br>
         {{ game.genre_name }}<br>
