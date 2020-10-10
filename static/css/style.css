@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+
+/* -- Top Navbar -- */
+
+.main-title {
+    font-family: 'Roboto Slab', serif;
+    margin-left: 10px;
+}
+
+/* -- Media Queries -- */
+
+@media (max-width: 800px) {
+
+nav .brand-logo {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+}
