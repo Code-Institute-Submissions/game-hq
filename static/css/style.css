@@ -14,6 +14,10 @@ h3 {
     color: rgb(6, 175, 6); 
 }
 
+p {
+    font-family: 'Montserrat', serif;
+}
+
 .flashes {
     line-height: 2;
 }
