@@ -7,6 +7,14 @@
     margin-left: 10px;
 }
 
+/* -- Font Styles -- */
+
+h3 {
+    font-family: 'Roboto Slab', serif;
+    color: rgb(6, 175, 6); 
+}
+
+
 /* -- Media Queries -- */
 
 @media (max-width: 800px) {
