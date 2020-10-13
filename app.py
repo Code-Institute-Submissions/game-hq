@@ -126,12 +126,10 @@ def add_game():
 
 
 def create_amazon_search(game):
-    '''
-    defines a function to build an amazon search link on game title
-    '''
+    # this fucntion allows the creation of an amazon link to search amazon for game
 
     amazonlink = 'https://www.amazon.co.uk/s?k='
-    while ' ' in game:  # this replaces the spaces with +
+    while ' ' in game:  # this replaces the spaces in the name with +
         game = game.replace(' ', '+')
     amazonlink += game
 
