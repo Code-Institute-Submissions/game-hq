@@ -7,6 +7,11 @@
     margin-left: 10px;
 }
 
+.flashes {
+    line-height: 2;
+}
+
+
 /* -- Font Styles -- */
 
 h3 {
@@ -18,8 +23,8 @@ p {
     font-family: 'Montserrat', serif;
 }
 
-.flashes {
-    line-height: 2;
+.card-title {
+    font-family: 'Roboto Slab', serif;
 }
 
 
