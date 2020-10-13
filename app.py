@@ -102,7 +102,8 @@ def logout():
 
 @app.route("/add_game")
 def add_game():
-    return render_template("add_game.html")
+    genre = mongo.db.genre.find().sort("genre_name", 1)
+    return render_template("add_game.html", genre=genre)
 
 
 if __name__ == "__main__":
