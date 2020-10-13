@@ -100,10 +100,42 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_game")
+@app.route("/add_game", methods=["GET", "POST"])
 def add_game():
+    if request.method == "POST":
+    
+        amazon_link = create_amazon_search(request.form.get("game_name"))
+
+        game = {
+            "game_name": request.form.get("game_name"),
+            "game_developer": request.form.get("game_developer"),
+            "genre_name": request.form.get("genre_name"),
+            "game_description": request.form.get("game_description"),
+            "game_review": request.form.get("game_review"),
+            "game_image": request.form.get("game_image"),
+            "created_by": session["user"],
+            "amazon_link": amazon_link,
+            "upvote": 0,
+            }
+        mongo.db.games.insert_one(game)
+        flash("Review successfully Added!")
+        return redirect(url_for("get_games"))
+
     genre = mongo.db.genre.find().sort("genre_name", 1)
     return render_template("add_game.html", genre=genre)
+
+
+def create_amazon_search(game):
+    '''
+    defines a function to build an amazon search link on game title
+    '''
+
+    amazonlink = 'https://www.amazon.co.uk/s?k='
+    while ' ' in game:  # this replaces the spaces with +
+        game = game.replace(' ', '+')
+    amazonlink += game
+
+    return amazonlink  # returns the newly built amazon link
 
 
 if __name__ == "__main__":
