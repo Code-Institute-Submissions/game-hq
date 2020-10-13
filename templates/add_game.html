@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% block content %}
 
-    <h3 class="center-align">Add Game Review</h3>
+    <h3 class="center-align">Add A Game Review</h3>
 
     <div class="row card-panel light-green lighten-5">
         <form class="col s12" method="POST" action="">
+            <!-- game title input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-gamepad green-text text-darken-2 prefix"></i>
@@ -12,6 +13,7 @@
                     <label for="game_name">Game Title</label>
                 </div>
             </div>
+            <!-- game developer input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-building green-text text-darken-2 prefix"></i>
@@ -20,6 +22,7 @@
                     <label for="game_developer">Game Developer</label>
                 </div>
             </div>
+            <!-- game genre dropdown -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open green-text text-darken-2 prefix"></i>
@@ -32,6 +35,7 @@
                     <label for="genre_name">Game Genre</label>
                 </div>
             </div>
+            <!-- game description section -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
@@ -40,12 +44,50 @@
                     <label for="game_description">Game Description</label>
                 </div>
             </div>
+            <!-- game review section -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-search green-text text-darken-2 prefix"></i>
                     <textarea id="game_review" name="game_review" minlength="5"
                         maxlength="500" class="materialize-textarea validate" required></textarea>
                     <label for="game_review">Game Review</label>
+                </div>
+            </div>
+            <!-- Game image link input -->
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="far fa-image green-text text-darken-2 prefix"></i>
+                    <input id="game_link" name="game_link" minlength="5" maxlength="150"
+                        type="text" class="validate" required/>
+                    <label for="game_link">Game Image Link</label>
+                </div>
+                <div class="col s4">
+                    <a class="waves-effect waves-light btn modal-trigger green darken-2"
+                        href="#modal1"><i class="far fa-lightbulb"></i></a>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>How To Attach Image Link URL</h4>
+                            <ol class="black-text">
+							    <li> Search For images of Your Game Cover Image </li>
+							    <li> Right click on the image </li>
+							    <li> Click on copy image address </li>
+							    <li> Paste the link into the form </li>
+                                <li> e.g. (https://madeupaddress.com/content/uploads/google.jpg)</li>
+						    </ol>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat green darken-2 white-text">
+                                OKAY!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Review button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large green darken-2">
+                        Add Review <i class="fas fa-plus-circle right"></i>
+                    </button>
                 </div>
             </div>
         </form>
