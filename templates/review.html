@@ -8,7 +8,7 @@
                 <div class="card-image">
                     <img src="{{ game.game_image }}" alt="game image">
                 </div>
-                <div class="card-content">
+                <div class="card-content center-align">
                     <span class="card-title"><strong>Title: {{ game.game_name }}</strong></span>
                     <hr>
                     <span class="card-title"><strong>Developer: {{ game.game_developer }}</strong></span>
@@ -19,13 +19,19 @@
                     <hr>
                     <span class="card-title"><strong>Game Review</strong></span>
                     <p>{{ game.game_review }}</p>
+                    <hr>
+                    <span class="card-title"><strong>Reviewed by: {{ game.created_by }}</strong></span>
                 </div>
                 <div class="card-action center-align">
-                    <a href="#">This is a link</a>
+                    <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank">
+                        Search Amazon For Game <i class="fab fa-amazon right"></i> </a>
+                    <span><strong>Stars:</strong><span> +{{ game.upvote }}
+                        <a href="#" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span>
+                    </span>
                 </div>
                 <div class="card-action center-align">
-                    <a href="#">This is a link</a>
-                    <a href="#">This is a link</a>
+                    <a class="edit waves-effect waves-light btn blue">Edit Review</a>
+                    <a class="edit waves-effect waves-light btn red">Delete Review</a>
                 </div>
             </div>
         </div>

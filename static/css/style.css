@@ -32,16 +32,27 @@ p {
 .amazon, 
 .amazon:hover {
     background-color: #f0c14b;
+    margin: 15px;
+    border-radius: 15px;
 }
 
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
     background-color:#f0c14b;
+    border-radius: 15px;
+}
+
+.fa-star {
+    font-size: 1.4em;
 }
 
 .upvote {
-    margin-left: 10px;
+    margin-right: 5px!important;
 }
 
+.edit {
+    margin: 15px;
+    border-radius: 15px;
+}
 
 /* -- Media Queries -- */
 
