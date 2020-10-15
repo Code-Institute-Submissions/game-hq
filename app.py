@@ -100,6 +100,17 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route('/review/<game_id>', methods=['GET', 'POST'])
+def review(game_id):
+    ''' function to return a single record of the review db
+     on the basis of the id of the item in the collection,
+     runs when 'view review' is clicked '''
+
+    game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
+    
+    return render_template('review.html', game=game)
+
+
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -126,20 +137,24 @@ def add_review():
 
 @app.route('/edit_review/<game_id>', methods=['GET', 'POST'])
 def edit_review(game_id):
+    if request.method == "POST":
+        amazon_link = create_amazon_search(request.form.get("game_name"))
+
+        review = {
+            "game_name": request.form.get("game_name"),
+            "game_developer": request.form.get("game_developer"),
+            "genre_name": request.form.get("genre_name"),
+            "game_description": request.form.get("game_description"),
+            "game_review": request.form.get("game_review"),
+            "game_image": request.form.get("game_image"),
+            "amazon_link": amazon_link,
+            }
+        mongo.db.games.update({'_id': ObjectId(game_id)}, review)
+        flash("Review successfully Updated!")
+
     game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
     genre = mongo.db.genre.find().sort("genre_name", 1)
-    return render_template("edit_review.html", game=game, genre=genre)
-
-
-@app.route('/review/<game_id>', methods=['GET', 'POST'])
-def review(game_id):
-    ''' function to return a single record of the review db
-     on the basis of the id of the item in the collection,
-     runs when 'view review' is clicked '''
-
-    game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
-    
-    return render_template('review.html', game=game)
+    return render_template("review.html", game=game, genre=genre)
 
 
 def create_amazon_search(game):
