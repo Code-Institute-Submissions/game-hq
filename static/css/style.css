@@ -38,7 +38,6 @@ p {
 
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
     background-color:#f0c14b;
-    border-radius: 15px;
 }
 
 .fa-star {

@@ -100,8 +100,8 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_game", methods=["GET", "POST"])
-def add_game():
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
     if request.method == "POST":
         amazon_link = create_amazon_search(request.form.get("game_name"))
 
@@ -121,7 +121,14 @@ def add_game():
         return redirect(url_for("get_games"))
 
     genre = mongo.db.genre.find().sort("genre_name", 1)
-    return render_template("add_game.html", genre=genre)
+    return render_template("add_review.html", genre=genre)
+
+
+@app.route('/edit_review/<game_id>', methods=['GET', 'POST'])
+def edit_review(game_id):
+    game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
+    genre = mongo.db.genre.find().sort("genre_name", 1)
+    return render_template("edit_review.html", game=game, genre=genre)
 
 
 @app.route('/review/<game_id>', methods=['GET', 'POST'])
