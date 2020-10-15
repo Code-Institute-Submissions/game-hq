@@ -9,7 +9,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-gamepad green-text text-darken-2 prefix"></i>
                     <input id="game_name" name="game_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required/>
+                        value="{{ game.game_name }}" type="text" class="validate" required/>
                     <label for="game_name">Game Title</label>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-building green-text text-darken-2 prefix"></i>
                     <input id="game_developer" name="game_developer" minlength="5" maxlength="50"
-                        type="text" class="validate" required/>
+                        value="{{ game.game_developer }}" type="text" class="validate" required/>
                     <label for="game_developer">Game Developer</label>
                 </div>
             </div>
@@ -27,9 +27,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open green-text text-darken-2 prefix"></i>
                     <select id="genre_name" name="genre_name" class="validate" required>
-                        <option value="" disabled selected>Pick The Genre</option>
+                        <option value="" disabled>Pick The Genre</option>
                         {% for genre in genre %}
-                            <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                            {% if genre.genre_name == game.genre_name %}
+                                <option value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
+                            {% else %}
+                                <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="genre_name">Game Genre</label>
@@ -40,7 +44,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                     <textarea id="game_description" name="game_description" minlength="5"
-                        maxlength="150" class="materialize-textarea validate" required></textarea>
+                        maxlength="150" class="materialize-textarea validate" required>
+                        {{- game.game_description -}}
+                    </textarea>
                     <label for="game_description">Game Description</label>
                 </div>
             </div>
@@ -49,7 +55,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-search green-text text-darken-2 prefix"></i>
                     <textarea id="game_review" name="game_review" minlength="5"
-                        maxlength="500" class="materialize-textarea validate" required></textarea>
+                        maxlength="500" class="materialize-textarea validate" required>
+                        {{- game.game_review -}}
+                    </textarea>
                     <label for="game_review">Game Review</label>
                 </div>
             </div>
@@ -58,11 +66,11 @@
                 <div class="input-field col s8">
                     <i class="far fa-image green-text text-darken-2 prefix"></i>
                     <input id="game_image" name="game_image" minlength="5" maxlength="150"
-                        type="text" class="validate" required/>
+                        value="{{ game.game_image }}" type="text" class="validate" required/>
                     <label for="game_image">Game Image Link</label>
                 </div>
                 <div class="col s4">
-                    <a class="waves-effect waves-light btn modal-trigger green darken-2"
+                    <a class="edit waves-effect waves-light btn modal-trigger green darken-2"
                         href="#modal1"><i class="far fa-lightbulb"></i></a>
                     <div id="modal1" class="modal">
                         <div class="modal-content">
@@ -76,7 +84,7 @@
 						    </ol>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat green darken-2 white-text">
+                            <a href="#!" class="edit modal-close waves-effect waves-green btn-flat green darken-2 white-text">
                                 OKAY!</a>
                         </div>
                     </div>
@@ -85,7 +93,11 @@
             <!-- Add Review button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large green darken-2">
+                    <!-- Cancel button -->
+                    <a href="{{ url_for('review', game_id=game._id) }}" class="edit btn-large red">
+                        Cancel <i class="fas fa-window-close right"></i>
+                    </a>
+                    <button type="submit" class="edit btn-large green darken-2">
                         Edit Review <i class="fas fa-edit right"></i>
                     </button>
                 </div>
