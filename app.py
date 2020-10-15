@@ -157,6 +157,13 @@ def edit_review(game_id):
     return render_template("review.html", game=game, genre=genre)
 
 
+@app.route('/delete_review/<game_id>')
+def delete_review(game_id):
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    flash("Review successfully Deleted!")
+    return redirect(url_for("get_games"))
+
+
 def create_amazon_search(game):
     # this fucntion allows the creation of an amazon link to search amazon
 
