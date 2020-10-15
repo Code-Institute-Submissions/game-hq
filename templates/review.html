@@ -25,7 +25,12 @@
                 <div class="card-content">
                     <a class="waves-effect waves-light btn amazon" href="{{ game.amazon_link }}" 
                         target="_blank"><i class="fab fa-amazon"></i>  Search Amazon for Game</a>
+                    <span class="upvote">
+                        <span>Stars:</span><span>+{{ game.upvote }}</span><span><a href=""><i class="fas fa-star green-text text-darken-2"></i></a></span>
+                        <span>click to Add a Star!</span>
+                    </span>
                 </div>
+                
             </div>
         </div>
     </div>
