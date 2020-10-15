@@ -103,7 +103,6 @@ def logout():
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
     if request.method == "POST":
-    
         amazon_link = create_amazon_search(request.form.get("game_name"))
 
         game = {
@@ -125,8 +124,19 @@ def add_game():
     return render_template("add_game.html", genre=genre)
 
 
+@app.route('/review/<game_id>', methods=['GET', 'POST'])
+def review(game_id):
+    ''' function to return a single record of the review db
+     on the basis of the id of the item in the collection,
+     runs when 'view review' is clicked '''
+
+    game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
+    
+    return render_template('review.html', game=game)
+
+
 def create_amazon_search(game):
-    # this fucntion allows the creation of an amazon link to search amazon for game
+    # this fucntion allows the creation of an amazon link to search amazon
 
     amazonlink = 'https://www.amazon.co.uk/s?k='
     while ' ' in game:  # this replaces the spaces in the name with +

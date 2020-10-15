@@ -1,25 +1,33 @@
 {% extends "base.html" %} {% block content %} 
 
+    <h3 class="center-align">Game Review</h3>
     
-    <div class="row">
-        {% for game in games %}
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{ game.game_image }}" alt="game image">
-                </div>
+    <div class="col s12 m7">
+        <div class="card horizontal large">
+            <div class="card-image">
+                <img src="{{ game.game_image }}" alt="game image">
+            </div>
+            <div class="card-stacked">
                 <div class="card-content">
                     <span class="card-title"><strong>Title: {{ game.game_name }}</strong></span>
                     <hr>
+                    <span class="card-title"><strong>Developer: {{ game.game_developer }}</strong></span>
+                    <span class="card-title"><strong>Genre: {{ game.genre_name }}</strong></span>
+                    <hr>
                     <span class="card-title"><strong>Game Description</strong></span>
                     <p>{{ game.game_description }}</p>
+                    <hr>
+                    <span class="card-title"><strong>Game Review</strong></span>
+                    <p>{{ game.game_review }}</p>
+                    <hr>
+                    <span class="card-title"><strong>Reviewed By: {{ game.created_by }}</strong></span>
                 </div>
-                <div class="card-action">
-                    <a class="green-text" href="#">Game Review</a>
+                <div class="card-content">
+                    <a class="waves-effect waves-light btn amazon" href="{{ game.amazon_link }}" 
+                        target="_blank"><i class="fab fa-amazon"></i>  Search Amazon for Game</a>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
     
 

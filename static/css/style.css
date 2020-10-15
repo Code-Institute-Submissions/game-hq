@@ -29,6 +29,14 @@ p {
 
 /* -- card panels -- */
 
+.amazon, 
+.amazon:hover {
+    background-color: #f0c14b;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+    background-color:#f0c14b;
+}
 
 
 /* -- Media Queries -- */
