@@ -151,10 +151,12 @@ def edit_review(game_id):
             }
         mongo.db.games.update({'_id': ObjectId(game_id)}, review)
         flash("Review successfully Updated!")
+        game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
+        return render_template('review.html', game=game)
 
     game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
     genre = mongo.db.genre.find().sort("genre_name", 1)
-    return render_template("review.html", game=game, genre=genre)
+    return render_template("edit_review.html", game=game, genre=genre)
 
 
 @app.route('/delete_review/<game_id>')

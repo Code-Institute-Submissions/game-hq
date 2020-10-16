@@ -32,7 +32,18 @@
                 {% if session.user|lower == game.created_by|lower or session.user|lower == "admin"|lower %}
                     <div class="card-action center-align">
                         <a href="{{ url_for('edit_review', game_id=game._id) }}" class="edit waves-effect waves-light btn blue">Edit Review</a>
-                        <a href="{{ url_for('delete_review', game_id=game._id) }}" class="edit waves-effect waves-light btn red">Delete Review</a>
+                        <a href="#modal-delete" class="edit modal-trigger waves-effect waves-light btn red">Delete Review</a>
+                    </div>
+                    <div id="modal-delete" class="modal">
+                        <div class="modal-content center-align">
+                            <strong><h4 class="red-text">Warning!</h4></strong>
+                            <p>YOU ARE ABOUT TO DELETE THIS REVIEW</p>
+                            <p>ARE YOU SURE?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url_for('delete_review', game_id=game._id) }}" class="edit modal-close waves-effect waves-light btn red">Delete!</a>
+                            <a href="#!" class="edit modal-close waves-effect waves-green green btn-flat">Cancel</a>
+                        </div>
                     </div>
                 {% endif %}
             </div>
