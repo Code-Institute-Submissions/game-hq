@@ -185,6 +185,20 @@ def add_genre():
     return render_template("add_genre.html")
 
 
+@app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
+def edit_genre(genre_id):
+    if request.method == "POST":
+        submit = {
+            "genre_name": request.form.get("genre_name")
+        }
+        mongo.db.genre.update({'_id': ObjectId(genre_id)}, submit)
+        flash("Genre Successfully Updated!")
+        return redirect(url_for("get_genres"))
+
+    genre = mongo.db.genre.find_one({'_id': ObjectId(genre_id)})
+    return render_template("edit_genre.html", genre=genre)
+
+
 def create_amazon_search(game):
     # this fucntion allows the creation of an amazon link to search amazon
 

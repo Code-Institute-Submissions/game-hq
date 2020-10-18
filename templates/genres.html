@@ -19,7 +19,7 @@
                     <span class="card-title">{{ genre.genre_name }}</span>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="edit waves-effect waves-light btn blue">Edit Genre</a>
+                    <a href="{{ url_for('edit_genre', genre_id=genre._id) }}" class="edit waves-effect waves-light btn blue">Edit Genre</a>
                     <a href="#" class="edit modal-trigger waves-effect waves-light btn red">Delete Genre</a>
                 </div>
             </div>
