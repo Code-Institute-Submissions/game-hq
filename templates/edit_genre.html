@@ -13,15 +13,29 @@
                     <label for="genre_name">Genre Name</label>
                 </div>
             </div>
-            <!-- Add Review button -->
+            <!-- Add Genre button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('get_genres') }}" class="edit btn-large red">
+                    <a href="{{ url_for('get_genres') }}" class="edit btn-large grey">
                         Cancel <i class="fas fa-window-close right"></i>
                     </a>
                     <button type="submit" class="edit btn-large green darken-2">
                         Edit Genre <i class="fas fa-edit right"></i>
                     </button>
+                    <a href="#genre-delete" class="edit modal-trigger btn-large red">
+                        Delete Genre <i class="fas fa-trash-alt right"></i>
+                    </a>
+                    <div id="genre-delete" class="modal">
+                        <div class="modal-content center-align">
+                            <strong><h4 class="red-text">WARNING!</h4></strong>
+                            <p>YOU ARE ABOUT TO DELETE THIS GENRE</p>
+                            <p>ARE YOU SURE?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url_for('delete_genre', genre_id=genre._id) }}" class="edit modal-close waves-effect waves-light btn red">Delete!</a>
+                            <a href="#!" class="edit modal-close waves-effect waves-green green btn-flat">Cancel</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>

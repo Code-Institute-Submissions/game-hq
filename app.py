@@ -199,6 +199,13 @@ def edit_genre(genre_id):
     return render_template("edit_genre.html", genre=genre)
 
 
+@app.route('/delete_genre/<genre_id>')
+def delete_genre(genre_id):
+    mongo.db.genre.remove({"_id": ObjectId(genre_id)})
+    flash("Genre successfully Deleted!")
+    return redirect(url_for("get_genres"))
+
+
 def create_amazon_search(game):
     # this fucntion allows the creation of an amazon link to search amazon
 
