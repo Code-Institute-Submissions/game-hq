@@ -166,6 +166,12 @@ def delete_review(game_id):
     return redirect(url_for("get_games"))
 
 
+@app.route("/get_genres")
+def get_genres():
+    genre = list(mongo.db.genre.find().sort("genre_name", 1))
+    return render_template("genres.html", genre=genre)
+
+
 def create_amazon_search(game):
     # this fucntion allows the creation of an amazon link to search amazon
 
