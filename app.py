@@ -172,6 +172,11 @@ def get_genres():
     return render_template("genres.html", genre=genre)
 
 
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
+    return render_template("add_genre.html")
+
+
 def create_amazon_search(game):
     # this fucntion allows the creation of an amazon link to search amazon
 
