@@ -174,6 +174,14 @@ def get_genres():
 
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
+    if request.method == "POST":
+        genre = {
+            "genre_name": request.form.get("genre_name")
+        }
+        mongo.db.genre.insert_one(genre)
+        flash("New Genre Added!")
+        return redirect(url_for("get_genres"))
+
     return render_template("add_genre.html")
 
 
