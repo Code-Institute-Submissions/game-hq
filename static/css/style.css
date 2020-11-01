@@ -29,6 +29,11 @@ p {
 
 /* -- card panels -- */
 
+.jumbo-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+}
+
 .amazon, 
 .amazon:hover {
     background-color: #f0c14b;
