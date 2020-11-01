@@ -94,7 +94,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        games = mongo.db.games.find({'created_by': session["user"]})
+        return render_template("profile.html", username=username, games=games)
 
     return redirect(url_for("login"))
 
