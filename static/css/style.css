@@ -29,6 +29,12 @@ p {
 
 /* -- card panels -- */
 
+.user-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 40px;
+    color: rgb(6, 175, 6); 
+}
+
 .jumbo-title {
     font-family: 'Roboto Slab', serif;
     font-size: 22px;
