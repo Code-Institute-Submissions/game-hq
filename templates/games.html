@@ -12,7 +12,7 @@
                 </div>
                 <div class="col s12 m4">
                     <a href="{{ url_for('get_games') }}" class="edit red btn">Reset</a>
-                    <button type="submit" class="edit btn-large green darken-2">
+                    <button type="submit" class="edit btn green darken-2">
                         <i class="fas fa-search left"></i> Search
                     </button>
                 </div>
@@ -20,6 +20,7 @@
         </form>
     </div>
     
+    {% if games|length > 0 %}
     <div class="row">
         {% for game in games %}
         <div class="col s12 m3">
@@ -40,6 +41,8 @@
         </div>
         {% endfor %}
     </div>
-    
+    {% else %}
+        <h3 class="red-text center-align">No Results Found</h3>
+    {% endif %}
 
 {% endblock %}
