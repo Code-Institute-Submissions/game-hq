@@ -29,6 +29,10 @@ p {
 
 /* -- card panels -- */
 
+.card.large {
+    height: 770px;
+}
+
 .user-title {
     font-family: 'Roboto Slab', serif;
     font-size: 40px;
