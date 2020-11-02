@@ -2,6 +2,7 @@
 
     <h3 class="center-align">Game Review</h3>
     
+    <!-- card for review -->
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="card">
@@ -9,7 +10,7 @@
                     <img src="{{ game.game_image }}" alt="game image">
                 </div>
                 <div class="card-content center-align">
-                    <span class="card-title"><strong>Title: {{ game.game_name }}</strong></span>
+                    <span class="card-title"><strong>{{ game.game_name }}</strong></span>
                     <hr>
                     <span class="card-title"><strong>Developer: {{ game.game_developer }}</strong></span>
                     <span class="card-title"><strong>Genre: {{ game.genre_name }}</strong></span>
@@ -23,18 +24,18 @@
                     <span class="card-title"><strong>Reviewed by: {{ game.created_by }}</strong></span>
                 </div>
                 <div class="card-action center-align">
-                    <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank">
+                    <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank"> <!-- amazon link button -->
                         Search Amazon For Game <i class="fab fa-amazon right"></i> </a>
                     <span><strong>Stars:</strong><span> +{{ game.upvote }}
-                        <a href="#" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span>
+                        <a href="#" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span> <!-- upvote link -->
                     </span>
                 </div>
-                {% if session.user|lower == game.created_by|lower or session.user|lower == "admin"|lower %}
+                {% if session.user|lower == game.created_by|lower or session.user|lower == "admin"|lower %}   <!-- if check to see if user or admin -->
                     <div class="card-action center-align">
                         <a href="{{ url_for('edit_review', game_id=game._id) }}" class="edit waves-effect waves-light btn blue">Edit Review</a>
                         <a href="#modal-delete" class="edit modal-trigger waves-effect waves-light btn red">Delete Review</a>
                     </div>
-                    <div id="modal-delete" class="modal">
+                    <div id="modal-delete" class="modal">  <!-- modal for delete confirmation -->
                         <div class="modal-content center-align">
                             <strong><h4 class="red-text">WARNING!</h4></strong>
                             <p>YOU ARE ABOUT TO DELETE THIS REVIEW</p>
