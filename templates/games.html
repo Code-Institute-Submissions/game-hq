@@ -50,6 +50,8 @@
                 </div>
                 <div class="card-action center-align">
                     <a class="green-text" href="{{ url_for('review', game_id=game._id) }}">Game Review</a>
+                    <span><strong>Stars:</strong><span><span>  {{ game.upvote }}</span>
+                    <i class="fas fa-star green-text text-darken-2"></i>
                 </div>
             </div>
         </div>
