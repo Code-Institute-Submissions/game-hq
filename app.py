@@ -174,6 +174,14 @@ def delete_review(game_id):
     return redirect(url_for("get_games"))
 
 
+@app.route("/upvote/<game_id>")
+def upvote(game_id):
+    # this is the function to increase the upvote.
+    game = mongo.db.games.find_one_and_update(
+        {"_id": ObjectId(game_id)}, {'$inc': {'upvote': 1}})
+    return render_template('review.html', game=game)
+
+
 @app.route("/get_genres")
 def get_genres():
     genre = list(mongo.db.genre.find().sort("genre_name", 1))

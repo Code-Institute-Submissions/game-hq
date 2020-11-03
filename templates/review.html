@@ -27,7 +27,7 @@
                     <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank"> <!-- amazon link button -->
                         Search Amazon For Game <i class="fab fa-amazon right"></i> </a>
                     <span><strong>Stars:</strong><span> +{{ game.upvote }}
-                        <a href="#" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span> <!-- upvote link -->
+                        <a href="{{ url_for('upvote', game_id=game._id) }}" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span> <!-- upvote link -->
                     </span>
                 </div>
                 {% if session.user|lower == game.created_by|lower or session.user|lower == "admin"|lower %}   <!-- if check to see if user or admin -->
