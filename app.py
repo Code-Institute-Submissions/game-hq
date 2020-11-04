@@ -100,6 +100,20 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/delete_profile/<username>", methods=["GET", "POST"])
+def delete_profile(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    
+    if session["user"]:
+        games = mongo.db.games.delete_many({'created_by': session["user"]})
+        user = mongo.db.users.delete_one({'username': session["user"]})
+        session.clear()
+        flash("Your Profile and All Reviews have been Deleted!")
+        return redirect(url_for(
+            "get_games", games=games, user=user, username=username))
+
+
 @app.route("/logout")
 def logout():
     # this function will log the user out

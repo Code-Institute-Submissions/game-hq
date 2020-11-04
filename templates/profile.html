@@ -27,7 +27,7 @@
             <p>ARE YOU SURE YOU WANT TO DO THIS?</p>
         </div>
         <div class="modal-footer">
-            <a href="#" class="edit modal-close waves-effect waves-light btn red">Delete Account!</a>
+            <a href="{{ url_for('delete_profile', username=session['user']) }}" class="edit modal-close waves-effect waves-light btn red">Delete Account!</a>
             <a href="#!" class="edit modal-close waves-effect waves-green green btn-flat">Cancel</a>
         </div>
     </div>
