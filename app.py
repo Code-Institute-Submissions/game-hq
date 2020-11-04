@@ -247,6 +247,12 @@ def create_amazon_search(game):
     return amazonlink  # returns the newly built amazon link
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # this is the route for handling 404 errors
+    return render_template("404.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

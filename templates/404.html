@@ -3,15 +3,20 @@
 <!-- 404 error page content -->
 <h3 class="center-align">ERROR 404</h3>
 
-    <!-- top jumbo image -->
     <div class="row">
         <div class="col s12">
             <div class="card jumbo-card">
                 <div class="card-image">
-                    <img src="static/images/cyberpunk-2077-main.jpg">
+                    <img src="/static/images/Game-Over.jpg">
                 </div>
                 <div class="card-content center-align">
-                    <strong><p class="jumbo-title">This is a Game review Website, you can come and read reviews, then write some of your own.</p></strong>
+                    <strong><p class="jumbo-title">oops Something went Wrong! Click below to go back to Home.</p></strong>
+                </div>
+                <div class="card-action">
+                    <div class="row center-align">
+                        <a href="{{ url_for('get_games') }}" class="edit btn green darken-2">
+                            <i class="fas fa-home left"></i> Home</a>
+                    </div>
                 </div>
             </div>
         </div>
