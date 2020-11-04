@@ -104,7 +104,7 @@ def profile(username):
 def delete_profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         games = mongo.db.games.delete_many({'created_by': session["user"]})
         user = mongo.db.users.delete_one({'username': session["user"]})
