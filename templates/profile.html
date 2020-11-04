@@ -12,9 +12,23 @@
                         {{ username }}'s Reviews
                     </p></strong>
                     <hr>
-                    <strong><p class="jumbo-title">This is your profile page. You can view all your reviews here.</p></strong>
+                    <strong><p class="jumbo-title">This is your profile page. You can view all your reviews here. And also delete your account.</p></strong>
+                    <a href="#modal-delete-account" class="edit modal-trigger waves-effect waves-light btn red">Delete Account</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="modal-delete-account" class="modal">  <!-- modal for delete confirmation -->
+        <div class="modal-content center-align">
+            <strong><h4 class="red-text">WARNING!</h4></strong>
+            <p>YOU ARE ABOUT TO DELETE YOUR ACCOUNT</p>
+            <p>ALL YOUR PROFILE AND REVIEWS WILL DE DELETED AS WELL</p>
+            <p>ARE YOU SURE YOU WANT TO DO THIS?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="edit modal-close waves-effect waves-light btn red">Delete Account!</a>
+            <a href="#!" class="edit modal-close waves-effect waves-green green btn-flat">Cancel</a>
         </div>
     </div>
 
