@@ -126,7 +126,7 @@ def logout():
 def review(game_id):
     # function to display the review when viewed.
     game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
-    
+
     return render_template('review.html', game=game)
 
 

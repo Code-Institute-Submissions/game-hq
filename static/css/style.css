@@ -67,6 +67,24 @@ p {
     border-radius: 15px;
 }
 
+/* -- Footer -- */
+
+ul:not(.browser-default)>li {
+    list-style-type: none;
+    margin-top: 12px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
 /* -- Media Queries -- */
 
 @media (max-width: 800px) {
