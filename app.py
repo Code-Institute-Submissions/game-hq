@@ -255,6 +255,13 @@ def bad_request(e):
     # this is the route for handling 400 errors
     return render_template("400.html")
 
+
+@app.errorhandler(500)
+def server_error(e):
+    # this is the route for handling 500 errors
+    return render_template("500.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
