@@ -11,6 +11,7 @@
                 </div>
                 <div class="card-content center-align">
                     <strong><p class="jumbo-title">This is a Game review Website, you can come and read reviews, then write some of your own.</p></strong>
+                    <strong><p class="jumbo-title">Do you like a Review? Click on the review and give it a star!</p></strong>
                 </div>
                 <div class="card-action">
                     <div class="row center-align">
@@ -50,7 +51,7 @@
                 </div>
                 <div class="card-action center-align">
                     <a class="green-text" href="{{ url_for('review', game_id=game._id) }}">Game Review</a>
-                    <span><strong>Stars:</strong><span><span>  {{ game.upvote }}</span>
+                    <span><strong>Stars:</strong></span><span>  {{ game.upvote }}</span>
                     <i class="fas fa-star green-text text-darken-2"></i>
                 </div>
             </div>
