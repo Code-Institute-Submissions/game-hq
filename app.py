@@ -124,10 +124,7 @@ def logout():
 
 @app.route('/review/<game_id>', methods=['GET', 'POST'])
 def review(game_id):
-    ''' function to return a single record of the review db
-     on the basis of the id of the item in the collection,
-     runs when 'view review' is clicked '''
-
+    # function to display the review when viewed.
     game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
     
     return render_template('review.html', game=game)
@@ -252,6 +249,11 @@ def page_not_found(e):
     # this is the route for handling 404 errors
     return render_template("404.html")
 
+
+@app.errorhandler(400)
+def bad_request(e):
+    # this is the route for handling 400 errors
+    return render_template("400.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
