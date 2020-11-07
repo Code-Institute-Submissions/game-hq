@@ -25,7 +25,7 @@
                 </div>
                 <div class="card-action center-align">
                     <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank"> <!-- amazon link button -->
-                        Search Amazon For Game <i class="fab fa-amazon right"></i> </a>
+                        Search Amazon <i class="fab fa-amazon right"></i> </a>
                     <span><strong>Stars:</strong><span> +{{ game.upvote }}
                         <a href="{{ url_for('upvote', game_id=game._id) }}" class="upvote"><i class="fas fa-star green-text text-darken-2"></i></a>Click Here to Add a Star!</span> <!-- upvote link -->
                     </span>
