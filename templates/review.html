@@ -12,8 +12,8 @@
                 <div class="card-content center-align">
                     <span class="card-title"><strong>{{ game.game_name }}</strong></span>
                     <hr>
-                    <span class="card-title"><strong>Developer: {{ game.game_developer }}</strong></span>
-                    <span class="card-title"><strong>Genre: {{ game.genre_name }}</strong></span>
+                    <span class="card-title"><strong>Developer: </strong>{{ game.game_developer }}</span>
+                    <span class="card-title"><strong>Genre: </strong>{{ game.genre_name }}</span>
                     <hr>
                     <span class="card-title"><strong>Game Description</strong></span>
                     <p>{{ game.game_description }}</p>
@@ -21,7 +21,7 @@
                     <span class="card-title"><strong>Game Review</strong></span>
                     <p>{{ game.game_review }}</p>
                     <hr>
-                    <span class="card-title"><strong>Reviewed by: {{ game.created_by }}</strong></span>
+                    <span class="card-title"><strong>Reviewed by: </strong>{{ game.created_by }}</span>
                 </div>
                 <div class="card-action center-align">
                     <a href="{{ game.amazon_link }} " class="btn amazon" target="_blank"> <!-- amazon link button -->

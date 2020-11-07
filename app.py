@@ -166,17 +166,15 @@ def edit_review(game_id):
         amazon_link = create_amazon_search(request.form.get("game_name"))
 
         # use this to edit a review from the db
-        review = {
+        mongo.db.games.update_one({'_id': ObjectId(game_id)}, {'$set': {
             "game_name": request.form.get("game_name"),
             "game_developer": request.form.get("game_developer"),
             "genre_name": request.form.get("genre_name"),
             "game_description": request.form.get("game_description"),
             "game_review": request.form.get("game_review"),
             "game_image": request.form.get("game_image"),
-            "created_by": session["user"],
             "amazon_link": amazon_link,
-            }
-        mongo.db.games.update({'_id': ObjectId(game_id)}, review)
+            }})
         flash("Review successfully Updated!")
         game = mongo.db.games.find_one({'_id': ObjectId(game_id)})
         return render_template('review.html', game=game)
