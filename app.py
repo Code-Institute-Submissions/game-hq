@@ -21,12 +21,14 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_games")
 def get_games():
+    # this function is to display the game on the main page and sort by upvote
     games = list(mongo.db.games.find().sort('upvote', pymongo.DESCENDING))
     return render_template("games.html", games=games)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # use this function to search for game
     query = request.form.get("query")
     games = list(mongo.db.games.find({"$text": {"$search": query}}))
     return render_template("games.html", games=games)
@@ -93,6 +95,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    # then use the session user display all reviews by that user
     if session["user"]:
         games = mongo.db.games.find({'created_by': session["user"]})
         return render_template("profile.html", username=username, games=games)
@@ -102,9 +105,11 @@ def profile(username):
 
 @app.route("/delete_profile/<username>", methods=["GET", "POST"])
 def delete_profile(username):
+    # this gets the sessions users name
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    # then delete that session user from db and all reviews by that user
     if session["user"]:
         games = mongo.db.games.delete_many({'created_by': session["user"]})
         user = mongo.db.users.delete_one({'username': session["user"]})
@@ -135,6 +140,7 @@ def add_review():
     if request.method == "POST":
         amazon_link = create_amazon_search(request.form.get("game_name"))
 
+        # use this to create a new db entry for this review
         game = {
             "game_name": request.form.get("game_name"),
             "game_developer": request.form.get("game_developer"),
@@ -159,6 +165,7 @@ def edit_review(game_id):
     if request.method == "POST":
         amazon_link = create_amazon_search(request.form.get("game_name"))
 
+        # use this to edit a review from the db
         review = {
             "game_name": request.form.get("game_name"),
             "game_developer": request.form.get("game_developer"),
@@ -166,6 +173,7 @@ def edit_review(game_id):
             "game_description": request.form.get("game_description"),
             "game_review": request.form.get("game_review"),
             "game_image": request.form.get("game_image"),
+            "created_by": session["user"],
             "amazon_link": amazon_link,
             }
         mongo.db.games.update({'_id': ObjectId(game_id)}, review)
@@ -180,6 +188,7 @@ def edit_review(game_id):
 
 @app.route('/delete_review/<game_id>')
 def delete_review(game_id):
+    # this is the function to delete a review from the db
     mongo.db.games.remove({"_id": ObjectId(game_id)})
     flash("Review successfully Deleted!")
     return redirect(url_for("get_games"))
@@ -195,12 +204,14 @@ def upvote(game_id):
 
 @app.route("/get_genres")
 def get_genres():
+    # this is the function to display the genres from the db
     genre = list(mongo.db.genre.find().sort("genre_name", 1))
     return render_template("genres.html", genre=genre)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
+    # this function is to add a new genre to the db
     if request.method == "POST":
         genre = {
             "genre_name": request.form.get("genre_name")
@@ -214,6 +225,7 @@ def add_genre():
 
 @app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
 def edit_genre(genre_id):
+    # this is to edit a genre from the db
     if request.method == "POST":
         submit = {
             "genre_name": request.form.get("genre_name")
@@ -228,6 +240,7 @@ def edit_genre(genre_id):
 
 @app.route('/delete_genre/<genre_id>')
 def delete_genre(genre_id):
+    # this is to delete the genre from the db
     mongo.db.genre.remove({"_id": ObjectId(genre_id)})
     flash("Genre successfully Deleted!")
     return redirect(url_for("get_genres"))
