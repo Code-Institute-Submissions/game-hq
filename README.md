@@ -7,7 +7,25 @@ This website is intended for for users to be able to view game reviews from diff
 
 # Table of Contents
 
-table of contents here!
+1.  [**UX**](#ux)
+*  [**Project Goals**](#project-goals)
+*  [**User goals**](#user-goals)
+*  [**User Stories**](#user-stories)
+*  [**Design**](#design)
+*  [**wireframes**](#wireframes)
+  
+2.  [**Features**](#features)
+*  [**Existing Features**](#existing-features)
+*  [**Features Left to Implement**](#features-left-to-implement)
+3.  [**Technologies used**](#technologies-used)
+4.  [**Testing**](#testing)
+*  [**Automated Testing**](#automated-testing)
+*  [**Manual Testing**](#manual-testing) 
+5.  [**Coding**](#coding)
+6.  [**Deployment**](#deployment)
+7.  [**Credits**](#credits)
+
+
 
 # UX
 
@@ -39,8 +57,7 @@ I also wanted a way for the user to be able to go to amazon to buy that game tha
 9. As a Site Owner I want to able to see top reviews, So I can see whats popular,
 10. As a Site Owner I want to be able to send people to amazon, So that I can make money of sales.
 
-
-### **Design Choices**
+### **Design**
 
 Most of the design of my website came from inspiration from other Game review webistes such as [Gamespot](https://www.Gamespot.com) and from Game retail site [Game](htts://www.Game.co.uk)
 These sites helped with the information that I was going to need and the layout of my website.
@@ -190,7 +207,7 @@ For the manual testing of the site I went on User stories and also had a few fri
 
 ---
 
-## **Coding**
+# **Coding**
 
 This section I wanted to talk about some of the code I used specific to this site and some of the bugs I encountered while making the site.
 
