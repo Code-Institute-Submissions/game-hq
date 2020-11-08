@@ -97,7 +97,8 @@ def profile(username):
 
     # then use the session user display all reviews by that user
     if session["user"]:
-        games = mongo.db.games.find({'created_by': session["user"]})
+        games = mongo.db.games.find(
+            {'created_by': session["user"]}).sort('upvote', pymongo.DESCENDING)
         return render_template("profile.html", username=username, games=games)
 
     return redirect(url_for("login"))
