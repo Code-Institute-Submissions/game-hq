@@ -1,13 +1,33 @@
-# Your Project's Name
+![mock-ups Image](https://github.com/djacura/game-hq/assets/mock-ups-image.jpg "Mock-ups Image")
 
-One or two paragraphs providing an overview of your project.
+# Game HQ
 
-Essentially, this part is your sales pitch.
- 
-## UX
+This is my Game HQ Webiste, that I have created using HTML, CSS, Javascript and Python code using Flask and Mongo DB and then deployed on Heroku. 
+This website is intended for for users to be able to view game reviews from different people, and then be able to register and then login and add, edit and then delete reviews of their own, then if they like another persons review they can then give that review a star.
 
-* project goals
-* user goals
+# Table of Contents
+
+table of contents here!
+
+# UX
+
+### **Project Goals**
+
+The Aim of my project was to be able to create a site where user could go and look at game reviews and then be able to read them and then if they feel that game was for them
+they could then go and buy that game and play it and if they like that review give it a star, now I also wanted them to be able to create a profile where they could then add their own reviews and then add, edit and delete 
+their reviews, then I wanted to be able to create a way you could see the top reviews based on how many stars they had recieved from other users.
+
+### User Goals
+
+* To be able to view reviews and give them a star.
+* To be able to register an account and then login.
+* To then be able to add, edit and remove a review.
+* To be able to remove their account and the reviews as well.
+* To then be able to go to amazon and find that game to buy. 
+
+
+---
+
 * user stories
 * design choices
 * wireframes
