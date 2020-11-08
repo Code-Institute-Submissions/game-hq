@@ -59,7 +59,7 @@ I also wanted a way for the user to be able to go to amazon to buy that game tha
 
 ### **Design**
 
-Most of the design of my website came from inspiration from other Game review webistes such as [Gamespot](https://www.Gamespot.com) and from Game retail site [Game](htts://www.Game.co.uk)
+Most of the design of my website came from inspiration from other Game review webistes such as [Gamespot](https://www.Gamespot.com) and from Game retail site [Game](https://www.Game.co.uk)
 These sites helped with the information that I was going to need and the layout of my website.
 
 ### layout
@@ -310,6 +310,8 @@ This site was deployed using Heroku and then linked to Github so deploys could h
 
 9. Then In the Automatic deploys section you can then select to "Enable Automatic deploys" and then when you push to Github this is then automatically pushed to Heroku.
 
+* The Project is live on Heroku see link here. [Game HQ Project](https://game-hq-ms3.herokuapp.com/)
+* Also see the Link for the GitHub Repository here. [Game HQ MS3 Project Repository](https://github.com/djacura/game-hq)
 ---
 
 # **Credits**
