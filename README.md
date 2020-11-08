@@ -1,4 +1,4 @@
-![mock-ups Image](https://github.com/djacura/game-hq/assets/mock-ups-image.jpg "Mock-ups Image")
+<img  src="/assets/mock-ups-image.jpg"  alt="Mock Ups"/>
 
 # Game HQ
 
@@ -24,7 +24,6 @@ their reviews, then I wanted to be able to create a way you could see the top re
 * To then be able to add, edit and remove a review.
 * To be able to remove their account and the reviews as well.
 * To then be able to go to amazon and find that game to buy. 
-
 
 ---
 
