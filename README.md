@@ -269,31 +269,45 @@ validateMaterializeSelect();
 
 This allowed the validation to work and the field to change to red when nothing was selected.
 
+# **Deployment**
+
+This site was deployed using Heroku and then linked to Github so deploys could happen automatically, this process is shown below:
+
+1. First step while creating application was to create a requirements.txt file using CLI: `pip freeze > requirements.txt`
+2. Then create a Procfile with the CLI as well using the command: `echo web: python app.py > Profile`
+3. Use `git add` then `git commit` to add them to the staging area then `git push` up to Github.
+4. Create a new app on the heroku site, give it a name and then set the region to closest region to you.
+5. From the heroku dashboard select the app your using, and then click "Deploy" > "Deployment method" and select "Github".
+6. Once you have linked your Github to Heroku, you search for the repository you want to link it to and confirm.
+7. in the heroku dashboard for the application click on "settings" > "reveal config vars".
+8. Then set the following config settings:
+
+| Key | Value |
+| :------------- |:-------------|
+| Debug | False |
+| IP | the IP address |
+| MONGO_DBNAME | database name |
+| MONGO_URI | the mongo URI for this database |
+| PORT | the PORT number |
+| SECRET_KEY | The secret key |
+
+9. Then In the Automatic deploys section you can then select to "Enable Automatic deploys" and then when you push to Github this is then automatically pushed to Heroku.
+
 ---
-## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-
-## Credits
+# **Credits**
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The text for most of the site will be entered by users and some of the reviews were copied from the wikipedia pages of these games [Wikipedia](https://en.wikipedia.org)
 
 ### Media
-- The photos used in this site were obtained from ...
+- The images used in this site were obtained from [Playstation](https://www.playstation.com) website store for these games.
 
-### code
+### code and Acknowledgements
 
-- any code used not mine
+* Most of the code used in this was taken and modified from the task manager mini project that was done previous to this project. And code taken from Materilize website.
 
-### Acknowledgements
+* the python code for sending user to error pages was found from Slack and google.
 
-- I received inspiration for this project from X
+* Also I used some code from another persons project for the inspiration behind adding a image to the review from [ajgowards daddies recipes](https://github.com/ajgoward/daddies_recipes_MS3/blob/master/templates/recipes/addrecipe.html) MS3 project
+including the modal idea for showing how to upload the URL link.
