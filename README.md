@@ -149,43 +149,126 @@ For the Automated testing I used the following sites to check the validation of 
 
 With dev tools lighthouse see attached screenshot of results
 
+#### **Lighthouse desktop**
 ![lighthouse desktop](https://github.com/djacura/game-hq/raw/master/assets/testing/lighthouse-desktop.jpg "lighthouse desktop")
+#### **Lighthouse mobile**
 ![lighthouse mobile](https://github.com/djacura/game-hq/raw/master/assets/testing/lighthouse-mobile.jpg "lighthouse mobile")
+
+The only issue really here was the size of the images used on the site it was making it load slower, this is something I still need to change to make the site run faster and optimise it.
 
 ## Manual Testing
 
 For the manual testing of the site I went on User stories and also had a few friends and family test and feed back results as below:
 
-| Test | Expected |Passed |
+| Test | Expected | Passed |
 | :------------- |:-------------| :-----:|
-| User loads the landing page of site | Page displays without error and reviews can be viewed | &#9745; |
-| User loads the homepage of the site | Reviews are displayed by upvote bite like value in descending order | &#9745; |
-| User selects the 'review' button of a particular review on homepage | Review page displays without error and the correct review can be viewed | &#9745; |
-| User selects the 'review' button of a particular review on homepage whilst not logged in | Review page displays without error and the correct review can be viewed and the 'edit and 'delete' buttons are not visible | &#9745; |
-| User clicks on the upvote bite like on a review page | bite like should increase by 1 | &#9745; |
-| User clicks on amazon link on a review page | amazon site should load and show a link to the book if it exists in amazon based on the book title | &#9745; |
-| User clicks on delete button on review page when logged in | delete modal should pop up with warning and confirm / cancel buttons | &#9745; |
-| User clicks on confirm delete button on review page delete modal when logged in | review is removed from the db and confirmation message displayed | &#9745; |
-| User clicks on any nav link | All nav links should be fully functional both logged in and logged out and go to the correct destination | &#9745; |
-| User clicks on any nav link | All nav links should be fully functional both logged in and logged out and go to the correct destination | &#9745; |
-| User logs in | Nav items change from ***login***, ***register*** and ***about*** to ***my profile***, ***my reviews***, ***about*** and ***log out*** | &#9745; |
-| User selects ***Register*** from top nav | Register form page loads | &#9745; |
-| User enters username smaller than 3 characters and larger than 20 characters and clicks ***Register Now***| Form does not submit and shows error message to user that username must be between 3 and 20 characters long | &#9745; |
-| User enters correct **username** but enters different values in ***password*** and ***confirm password*** fields| Form does not submit and shows error message to user that passwords must match | &#9745; |
-| User enters correct ***username*** and ***password*** and ***confirm password*** fields match| Forms submits, landing page is loaded with message confirming successful registration | &#9745; |
-| User selects ***log In*** from top nav | ***log in*** form page loads | &#9745; |
-| User enters username smaller than 3 characters and larger than 20 characters and clicks ***Log in Now***| Form does not submit and shows error message to user that username must be between 3 and 20 characters long | &#9745; |
-| User enters correct **username** and enters correct values in ***password*** field of log in form| form submits and logs customer in and message is displayed to show successful log in | &#9745; |
-| User enters correct **username** but enters the wrong values in ***password*** field of log in form| Form does not submit and shows error message to user that password is incorrect | &#9745; |
-| User enters incorrect **username** | Form does not submit and shows error message to user that the user does not exist and shows a link to register | &#9745; |
-| User tries to **edit** / **delete** a review that they havent created under their username | User is messaged that they can't delete / edit reviews they do not own | &#9745; |
-| User **edits** a **review** they own| All edits are submitted successfully once they pass form validation and can be seen when review loads | &#9745; |
-| User selects to **delete** a **review** they do not own| user gets warning message informing that they cant delete someone else review | &#9745; |
-| User selects to **confirm delete** on delete modal| review is removed from list of reviews and user message| &#9745; |
-| User selects to **cancel delete** on delete modal| review is not removed from list of reviews and user return to review page| &#9745; |
-| User selects to **delete profile**| delete profile modal pops up with warning| &#9745; |
-| User selects to **cancel delete profile** on modal| user is returned to profile without any removals| &#9745; |
-| User selects **confirms to delete profile**| profile and all associated reviews are removed, user seesion is removed and user is sent back to index| &#9745; |
+| User loads the main page of site | Page displays without error and reviews can be viewed | &#9745; |
+| User can see the main page with reviews listed in order of star rating | Page displays and reviews are listed ion correct order | &#9745; |
+| The User registers for account | Page loads and correctly allows user to create account | &#9745; |
+| User loads the profile page of the site | Page displays without error and their reviews can be viewed | &#9745; |
+| The User selects the view review button | The correct review is then displayed correctly | &#9745; |
+| The User selects the add a star button | The star is added and the count goes up by one | &#9745; |
+| The User clicks on the search amazon button | a new tab is created with the amazon webiste and searches correct game name | &#9745; |
+| The User clicks on the new review link at the top  | The correct page and form is loaded to create a new review | &#9745; |
+| The User clicks on Add review button on new review page | The flash message is shown and the review is added to the database | &#9745; |
+| The User clicks on edit review button on the review page | The edit review page and form is correctly loaded with fields populated | &#9745; |
+| The User clicks on Delete review | The modal pops up to confirm they want to delete review and review is then deleted | &#9745; |
+| The User Clicks on Delete Account | The modal pops up to confirm they want to delete their account and reviews and then the account is deleted along will all reviews from that user | &#9745; |
+| The User searches for a game on the main page | if search matches criteria then games are shown if not error message shown | &#9745; |
+| The User enters wrong information in forms  | The validation should not allow user to input wrong text and if they missed a field | &#9745; |
+| The User tried to edit or delete another users review | Users cannot see edit or delete buttons for reviews not their own | &#9745; |
+| The user clicks on navigation links in top bar | the links all work | &#9745; |
+| The User clicks on nav links in bottom bar | the links all work | &#9745; |
+| Used Website works on multiple browsers | Used Chrome, Edge and Firefox browsers | &#9745; |
+| The admin User can manage genres | The admin user was only one to be able to manage genres | &#9745; |
+| The admin User can edit and delete reviews | The admin user was able to edit and delete other reviews | &#9745; |
+| The User clicks on the reset buttion on search bar | this resets search and shows all games | &#9745; |
+| The User clicks on Login | User taken to login screen and can login without error | &#9745; |
+| The User enters incorrect login details | displays Flash message showing that the details are incorrect | &#9745; |
+| The User clicks on Logout | The User is successfully logged out of the session and site | &#9745; |
+| The User clicks on home or the Logo | They User is directed back to the main page | &#9745; |
+
+---
+
+## **Coding**
+
+This section I wanted to talk about some of the code I used specific to this site and some of the bugs I encountered while making the site.
+
+## Sorting the reviews
+
+To make the reviews sort the reviews by stars I used the following code which I then used in the profile page as well. this allowed me to sort the reviews descending in order of how many upvotes the reviews have recieved. 
+
+~~~
+games = list(mongo.db.games.find().sort('upvote', pymongo.DESCENDING))
+~~~
+
+## Amazon link
+
+To make the amazon link functionality I used a search function to be able to search amazon based on the game name entered in the database.
+the link is made by using a default amazon search link and then appending the name of the game on the end while removing the spaces in the name.
+This then builds and amazon link and then is inputted into the form when creating a new review and then added to the database with the other info.
+
+~~~
+amazonlink = 'https://www.amazon.co.uk/s?k='
+    while ' ' in game:  # this replaces the spaces in the name with +
+        game = game.replace(' ', '+')
+    amazonlink += game
+
+    return amazonlink  # returns the newly built amazon link
+~~~
+
+## Bugs
+
+One of the bugs I encountered very early on in the development stage was that I was unable to get the contents of the mongo database to be carried over into the site,
+after checking alot (for about 3 days) I could figure out why the database was not coming across, eventually I resorted to student support for help with this as was hitting a wall.
+The team had a look and after a while we then figures out it was that I had my Gitpod variables permanently set in settings and was using setting from a previous project.
+I need to remember to check [Gitpod Settings](https://gitpod.io/settings/) when I next encounter this issue.
+
+Another bug that I encountered was that during the midpoint review with my mentor that he couldn't see himself as the creator when he made a review the field was blank see below:
+
+![user missing](https://github.com/djacura/game-hq/raw/master/assets/testing/reviewed-by-missing.jpg "user missing")
+
+We thought this was because he had started his username with a number rather than a letter but I have tested this issue see below and found that not to be the case so this one is still to be looked into if this issue is still
+present as I have not been able to recreate this bug.
+
+![user letter](https://github.com/djacura/game-hq/raw/master/assets/testing/reviewed-by-letter.jpg "user letter")
+
+Also when we had our midpoint review the select genre validation of the form was not working it wasn't showing that the user hadn't selected a genre and so no warning was given why they couldn't submit the form.
+This was then fixed by using the validation Jquery from the task manager miniproject.
+
+~~~
+validateMaterializeSelect();
+    function validateMaterializeSelect() {
+        let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
+        let classInvalid = { "border-bottom": "1px solid #f44336", "box-shadow": "0 1px 0 0 #f44336" };
+        if ($("select.validate").prop("required")) {
+            $("select.validate").css({ "display": "block", "height": "0", "padding": "0", "width": "0", "position": "absolute" });
+        }
+        $(".select-wrapper input.select-dropdown").on("focusin", function () {
+            $(this).parent(".select-wrapper").on("change", function () {
+                if ($(this).children("ul").children("li.selected:not(.disabled)").on("click", function () { })) {
+                    $(this).children("input").css(classValid);
+                }
+            });
+        }).on("click", function () {
+            if ($(this).parent(".select-wrapper").children("ul").children("li.selected:not(.disabled)").css("background-color") === "rgba(0, 0, 0, 0.03)") {
+                $(this).parent(".select-wrapper").children("input").css(classValid);
+            } else {
+                $(".select-wrapper input.select-dropdown").on("focusout", function () {
+                    if ($(this).parent(".select-wrapper").children("select").prop("required")) {
+                        if ($(this).css("border-bottom") != "1px solid rgb(76, 175, 80)") {
+                            $(this).parent(".select-wrapper").children("input").css(classInvalid);
+                        }
+                    }
+                });
+            }
+        });
+    }
+});
+~~~
+
+This allowed the validation to work and the field to change to red when nothing was selected.
+
 ---
 ## Deployment
 
