@@ -5,6 +5,8 @@
 This is my Game HQ Webiste, that I have created using HTML, CSS, Javascript and Python code using Flask and Mongo DB and then deployed on Heroku. 
 This website is intended for for users to be able to view game reviews from different people, and then be able to register and then login and add, edit and then delete reviews of their own, then if they like another persons review they can then give that review a star.
 
+The Project is live on Heroku see here. [Game HQ](https://game-hq-ms3.herokuapp.com/)
+
 # Table of Contents
 
 1.  [**UX**](#ux)
@@ -310,7 +312,6 @@ This site was deployed using Heroku and then linked to Github so deploys could h
 
 9. Then In the Automatic deploys section you can then select to "Enable Automatic deploys" and then when you push to Github this is then automatically pushed to Heroku.
 
-* The Project is live on Heroku see link here. [Game HQ Project](https://game-hq-ms3.herokuapp.com/)
 * Also see the Link for the GitHub Repository here. [Game HQ MS3 Project Repository](https://github.com/djacura/game-hq)
 ---
 
