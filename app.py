@@ -37,12 +37,6 @@ def search():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        if session["user"]:
-            # if a session currently exists notify user
-            # don't let logged in user register and send to homepage
-            flash('You are already logged in as  ' + session['user'])
-            return redirect(url_for('get_games'))
-
         # to check if the username already exists in the database?
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -69,12 +63,6 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        if session["user"]:
-            # if a session currently exists notify user and
-            # don't let logged in user login and send to homepage
-            flash('You are already logged in as  ' + session['user'])
-            return redirect(url_for('get_games'))
-
         # check is username already exists in the database
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
